@@ -21,9 +21,9 @@ export const StateContext = ({ children }) => {
 
         // we moved these states up so we can use in if and else statement below
         setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
-        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + product.quantity)
+        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
 
-    /* To updated cart, we map over cartItems to check if the id's match. If they do, we only want to increase subtotal price and quantity and not display the whole product image again as if it is an entirely new product */
+    /* To update cart, we map over cartItems to check if the id's match. If they do, we only want to increase subtotal price and quantity and not display the whole product image again as if it is an entirely new product */
         if(checkProductInCart) {
             const updatedCartItems = cartItems.map((cartProduct) => {
                 if(cartProduct._id === product._id) return {
@@ -36,24 +36,24 @@ export const StateContext = ({ children }) => {
         } else {
             product.quantity = quantity;
 
-            setCartItems([...cartItems, {...product}])
+            setCartItems([...cartItems, {...product}]);
         }
+
         toast.success(`${qty} ${product.name} added to the cart.`);
     }
 
     const onRemove = (product) => {
         foundProduct = cartItems.find((item) => item._id === product._id);
         const newCartItems = cartItems.filter((item) => item._id !== product._id);
-
-        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
+    
+        setTotalPrice((prevTotalPrice) => prevTotalPrice -foundProduct.price * foundProduct.quantity);
         setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
         setCartItems(newCartItems);
-    }
+      }
 
     const toggleCartItemQuantity = (id, value) => {
         foundProduct = cartItems.find((item) => item._id === id);
         index = cartItems.findIndex((product) => product._id === id);
-
         const newCartItems = cartItems.filter((item) => item._id !== id);
 
 
@@ -74,6 +74,7 @@ export const StateContext = ({ children }) => {
     const incQty = () => {
         setQty((prevQty) => prevQty + 1);
     }
+
     //decrease quantity in cart
     const decQty = () => {
         setQty((prevQty) => {

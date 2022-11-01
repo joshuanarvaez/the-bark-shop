@@ -1,5 +1,6 @@
 import React from 'react'
 import { client } from '../lib/client';
+import { getStripe } from '../lib/getStripe';
 import { Product, FooterBanner, HeroBanner } from '../components';
 
 const Home = ({ products, bannerData }) => (
@@ -23,11 +24,14 @@ const Home = ({ products, bannerData }) => (
   
 
   export const getServerSideProps = async () => {
+    
     const query = '*[_type == "product"]';
     const products = await client.fetch(query);
 
     const bannerQuery = '*[_type == "banner"]';
     const bannerData = await client.fetch(bannerQuery);
+    
+    console.log("stripe pub key=" + `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`);
     
     return {
       props: { products, bannerData }
