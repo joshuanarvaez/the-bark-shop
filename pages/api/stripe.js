@@ -3,7 +3,6 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-  console.log(req.body.cartItems);
   if (req.method === 'POST') {
     try {
       const params = {
@@ -13,12 +12,11 @@ export default async function handler(req, res) {
         billing_address_collection: 'auto',
         shipping_options: [
           { shipping_rate: 'shr_1LzQZFLpeQm3sbaESw8BpcsG' },
+          { shipping_rate: 'shr_1M2M4ULpeQm3sbaEareSgozQ' },
         ],
         line_items: req.body.map((item) => {
           const img = item.image[0].asset._ref;
           const newImage = img.replace('image-', 'https://cdn.sanity.io/images/uant6phr/production/').replace('-png', '.png');
-
-          console.log('IMAGE', newImage);
 
           return {
             price_data: { 
