@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai';
-
 import { Cart } from './'
 import { useStateContext } from '../context/StateContext';
 import Image from 'next/image';
@@ -12,7 +11,7 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <p className="logo">
-        <Link href="/">The Bark Shop</Link>
+        <Link href="/"><Image src={logo} className="homeLogo" alt="logo" width="200" height="60" style={{cursor: 'pointer'}}/></Link>
       </p>
       <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
       <AiOutlineShopping />
