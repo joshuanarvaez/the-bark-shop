@@ -22,14 +22,14 @@ Users can complete the checkout by filling out the card information form. For th
 Once the test purchase is complete, users will be redirected to a confirmation page where they have the option to email the ecommerce company directly or continue shopping.
 
 ## Built With
-Sanity: https://www.sanity.io/ 
-Stripe: https://stripe.com/docs/testing  
-React JS: https://reactjs.org/
+Sanity: https://www.sanity.io/  
+Stripe: https://stripe.com/docs/testing   
+React JS: https://reactjs.org/  
 Next JS: https://nextjs.org/  
-Node JS: https://nodejs.org/en/ 
-React Icons: https://react-icons.github.io/react-icons/  
+Node JS: https://nodejs.org/en/  
+React Icons: https://react-icons.github.io/react-icons/   
 React Hot Toast - https://react-hot-toast.com/  
-Canvas Confetti - https://www.kirilv.com/canvas-confetti/  
+Canvas Confetti - https://www.kirilv.com/canvas-confetti/   
 Vercel: https://vercel.com/  
 
 ## Dependencies
