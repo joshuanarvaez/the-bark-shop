@@ -1,4 +1,4 @@
-# Project: Travel Mate
+# Project: The Bark Shop
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
